@@ -50,6 +50,10 @@ function splitMessage(text)
 {
   var split = text.split(',');
   console.log(split);
+  var name = split[0];
+  var start = split[1];
+  var end = split[2];
+  // code to make calendar events using name, start, end - maybe pass to function?
 }
 
 class ChatComponent extends Component {

@@ -3,7 +3,7 @@ import { Grid, GridItem, Box } from "@chakra-ui/react";
 import React, { Component } from "react";
 import ChatComponent from "./Chat";
 
-const uri = encodeURI("future.email.address.12@gmail.com");
+const uri = encodeURI("chenamdna1024@gmail.com");
 const source = "https://calendar.google.com/calendar/embed?src=" + uri;
 
 class Calendar extends Component {
