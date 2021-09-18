@@ -35,7 +35,6 @@ const ChatComponent = (props) => {
 
   const state = channel.watch();
   channel.on("message.new", (event) => {
-    console.log("new message");
     let message = channel.lastMessage();
     console.log(message.text);
     scheduleEvent(message);
@@ -45,14 +44,24 @@ const ChatComponent = (props) => {
     let text = message.text;
     if (text.startsWith("$schedule")) {
       let event = text.substring(9);
-      console.log("scheduled!");
       splitMessage(event);
     }
   }
 
   function splitMessage(text) {
-    var split = text.split(",");
-    console.log(split);
+    let split = text.split(",");
+    let newEvent = {
+      title: split[0],
+      date: split[1],
+    };
+    const eventString = "calender" + props.id;
+    let eventArray = JSON.parse(localStorage.getItem(eventString));
+    if (!eventArray) {
+      eventArray = [];
+    }
+    eventArray.push(newEvent);
+    console.log(eventArray);
+    localStorage.setItem(eventString, JSON.stringify(eventArray));
   }
 
   return (

@@ -10,7 +10,7 @@ const Calendar = ({}) => {
   return (
     <Grid templateColumns="repeat(5, 1fr)" justifyContent="center">
       <Box w="50vw" h="100vh">
-        <NewCal />
+        <NewCal id={id} />
       </Box>
       <Box w="50vw" h="100vh">
         <ChatComponent id={id} />
