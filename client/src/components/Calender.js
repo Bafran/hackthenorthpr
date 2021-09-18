@@ -1,24 +1,22 @@
-import { ReactEmbeddedGoogleCalendar } from "react-embedded-google-calendar";
-import { Grid, GridItem, Box } from "@chakra-ui/react";
-import React, { Component } from "react";
+import { Box, Grid } from "@chakra-ui/react";
+import React from "react";
+import { useParams } from "react-router";
 import ChatComponent from "./Chat";
+import NewCal from "./newCal";
 
-const uri = encodeURI("future.email.address.12@gmail.com");
-const source = "https://calendar.google.com/calendar/embed?src=" + uri;
+const Calendar = ({}) => {
+  const { id } = useParams();
 
-class Calendar extends Component {
-  render() {
-    return (
-      <Grid templateColumns="repeat(5, 1fr)" gap={6} justifyContent="center">
-        <Box w="100%" h="10" bg="blue.500">
-          <iframe src={source} height="600px" width="800px"></iframe>
-        </Box>
-        <Box w="400px" h="10" bg="blue.500">
-          <ChatComponent />
-        </Box>
-      </Grid>
-    );
-  }
-}
+  return (
+    <Grid templateColumns="repeat(5, 1fr)" justifyContent="center">
+      <Box w="50vw" h="100vh">
+        <NewCal />
+      </Box>
+      <Box w="50vw" h="100vh">
+        <ChatComponent id={id} />
+      </Box>
+    </Grid>
+  );
+};
 
 export default Calendar;
