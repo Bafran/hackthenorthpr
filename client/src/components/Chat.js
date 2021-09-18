@@ -28,6 +28,30 @@ const channel = chatClient.channel("team", "teacherchannel1iujeiof", {
   name: "Something Else discussion",
 });
 
+const state = channel.watch()
+channel.on("message.new", event => {
+  console.log("new message");
+  let message = channel.lastMessage();
+  console.log(message.text);
+  scheduleEvent(message);
+})
+
+function scheduleEvent(message)
+{
+  let text = message.text;
+  if ((text.startsWith("$schedule"))){
+    let event = text.substring(9);
+    console.log("scheduled!");
+    splitMessage(event);
+  }
+}
+
+function splitMessage(text)
+{
+  var split = text.split(',');
+  console.log(split);
+}
+
 class ChatComponent extends Component {
   render() {
     return (
