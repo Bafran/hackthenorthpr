@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import Calendar from "./components/Calender";
 import NewCal from "./components/newCal";
+import Landing from "./components/Landing";
 
 const App = () => {
   return (
@@ -16,6 +17,11 @@ const App = () => {
         <Route path="/new">
           <ChakraProvider>
             <NewCal />
+          </ChakraProvider>
+        </Route>
+        <Route path="/">
+          <ChakraProvider>
+            <Landing />
           </ChakraProvider>
         </Route>
       </Switch>

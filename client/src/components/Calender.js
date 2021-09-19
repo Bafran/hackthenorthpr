@@ -9,11 +9,11 @@ const Calendar = ({}) => {
 
   return (
     <Grid templateColumns="repeat(5, 1fr)" justifyContent="center">
-      <Box w="50vw" h="100vh">
+      <Box w="50vw" h="100vh" padding={3}>
         <NewCal id={id} />
       </Box>
       <Box w="50vw" h="100vh">
-        <ChatComponent id={id} />
+        <ChatComponent id={id} padding={3} />
       </Box>
     </Grid>
   );
