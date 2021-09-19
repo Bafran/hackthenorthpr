@@ -1,9 +1,9 @@
-import FullCalendar from "@fullcalendar/react"; // must go before plugins
-import dayGridPlugin from "@fullcalendar/daygrid"; // a plugin!
-import React from "react";
+import FullCalendar from '@fullcalendar/react'; // must go before plugins
+import dayGridPlugin from '@fullcalendar/daygrid'; // a plugin!
+import React from 'react';
 
 const NewCal = (props) => {
-  const eventString = "calender" + props.id;
+  const eventString = 'calender' + props.id;
 
   const eventArray = JSON.parse(localStorage.getItem(eventString));
 
@@ -25,6 +25,14 @@ const NewCal = (props) => {
         plugins={[dayGridPlugin]}
         events={x}
         initialView="dayGridMonth"
+        eventClick={(info) =>
+          alert(
+            'Title: ' +
+              info.event.title +
+              '\nDescription: ' +
+              info.event.extendedProps.description
+          )
+        }
       />
     </>
   );
